@@ -1,3 +1,8 @@
+# Speed dating with PCA
+
+![A married couple cake toping](https://imgur.com/NpXLq5o.jpg)
+<a href="https://www.kaggle.com/annavictoria/speed-dating-experiment"> Image courtesy of Kaggle</a>
+
 Principal component analysis (PCA) is often used to simplify data, reduce noise, and find unmeasured latent variables.
 
 **In the following, I:**
