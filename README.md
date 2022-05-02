@@ -1,22 +1,49 @@
-<!---
-Questions? Comments?:
-1. Log an issue to this repo to alert us of a problem.
-2. Suggest an edit yourself by forking this repo, making edits, and submitting a pull request with your changes back to our master branch.
-3. Reach out to the data team on Slack and share your thoughts!
---->
+Principal component analysis (PCA) is often used to simplify data, reduce noise, and find unmeasured latent variables.
 
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Principal Component Analysis Lab
+**In the following, I:**
 
-<!--- Unit and sequence information. This template is an instructor-facing description for a given activity or lab. --->
+- Explore how PCA relates to correlation.
+- Use PCA to perform dimensionality reduction.
+- Predict whether or not a speed dater likes reading based on the dater's other likes.
 
-This lab applies principal component analysis to a speed dating dataset.
+### The dataset
 
----
+The dataset we're using is a subset of this [much more detailed speed dating data set](https://www.kaggle.com/annavictoria/speed-dating-experiment). In particular, this contains no information on the actual speed dating itself (i.e., successes with or opinions of other individuals). 
 
-## Materials We Provide
-<!--- This section is a table of contents for the activity. The table structure breaks down repo resources into types, distinguishing between  notebooks and supporting materials. Note that the table below demonstrates the total possible range of materials; most lessons won't require all of the categories below. Also note that every item in the repo should get its own line and link, like the example shown for data. --->
+It also contains no follow-up information where individuals are asked the same questions about themselves again. It only contains information about what an individual enjoys doing, their self-ratings on how desirable they are, and how they think others rate them based on desirability.
 
-| Topic | Description | Link |
-| --- | --- | --- |
-| Lab |  Principal Component Analysis Jupyter Notebook | [Link](./starter-code.ipynb)|
-| Data | Speed Dating Dataset | [Link](./datasets/speed_dating.csv)|
+The columns present in the data are outlined below:
+
+FieldName|Description
+---------|-----------
+    subject_id                   |   Unique individual identifier.
+    wave                         |   Meetup ID.
+    like_sports                  |   Enjoyment of participating in sports.
+    like_tvsports                |   Enjoyment of watching sports on TV.
+    like_exercise                |   Enjoyment of exercise.
+    like_food                    |   Enjoyment of food.
+    like_museums                 |   Enjoyment of museums.
+    like_art                     |   Enjoyment of art.
+    like_hiking                  |   Enjoyment of hiking.
+    like_gaming                  |   Enjoyment of playing games.
+    like_clubbing                |   Enjoyment of going clubbing/partying.
+    like_reading                 |   Enjoyment of reading.
+    like_tv                      |   Enjoyment of TV in general.
+    like_theater                 |   Enjoyment of the theater (plays, musicals, etc.).
+    like_movies                  |   Enjoyment of movies.
+    like_concerts                |   Enjoyment of concerts.
+    like_music                   |   Enjoyment of music.
+    like_shopping                |   Enjoyment of shopping.
+    like_yoga                    |   Enjoyment of yoga.
+    subjective_attractiveness    |   How attractive they rate themselves.
+    subjective_sincerity         |   How sincere they rate themselves.
+    subjective_intelligence      |   How intelligent they rate themselves.
+    subjective_fun               |   How fun they rate themselves.
+    subjective_ambition          |   How ambitious they rate themselves.
+    objective_attractiveness     |   Perceived rating others would give them on how attractive they are.
+    objective_sincerity          |   Perceived rating others would give them on how sincere they are.
+    objective_intelligence       |   Perceived rating others would give them on how intelligent they are.
+    objective_fun                |   Perceived rating others would give them on how fun they are.
+    objective_ambition           |   Perceived rating others would give them on how ambitious they are.
+    
+There are 551 subjects total.
